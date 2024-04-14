@@ -1,0 +1,591 @@
+<div style="max-width: 1980px; padding: 0 2rem 0 2rem; min-width: 100%;" id="app">
+    <div class="tittle">
+      <i class="bi bi-hospital"></i>
+      <h1>Historía Clínica</h1>
+    </div>
+
+    <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-sub-info-tab" data-bs-toggle="pill" data-bs-target="#pills-sub-info" type="button" role="tab" aria-controls="pills-sub-info" aria-selected="true">A. Información subjetiva</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-obj-info-tab" data-bs-toggle="pill" data-bs-target="#pills-obj-info" type="button" role="tab" aria-controls="pills-obj-info" aria-selected="false" disabled>B. Información objetiva</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-diagnostic-tab" data-bs-toggle="pill" data-bs-target="#pills-diagnostic" type="button" role="tab" aria-controls="pills-diagnostic" aria-selected="false" disabled>C. Diagnóstico</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-pronostic-tab" data-bs-toggle="pill" data-bs-target="#pills-pronostic" type="button" role="tab" aria-controls="pills-pronostic" aria-selected="false" disabled>D. Pronóstico</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-treatment-tab" data-bs-toggle="pill" data-bs-target="#pills-treatment" type="button" role="tab" aria-controls="pills-treatment" aria-selected="false" disabled>E. Tratamiento</button>
+      </li>
+    </ul>
+    <div class="tab-content mb-3" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-sub-info" role="tabpanel" aria-labelledby="pills-sub-info-tab" tabindex="0">
+        <!-- Inicio : Información subjetiva -->
+        <div class="accordion" id="accordionSubjectiveInfo">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Datos de identificación
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <div class="identificationData">
+                  <div class="row align-center justify-items-denter">
+                    <img
+                      src="https://picsum.photos/id/832/300/300/?blur=1&grayscale"
+                      alt="Imagen de perfil del usaurio"
+                      class="rounded-circle border"
+                      style="max-width: 150px; max-height: 150px; align-self: center; margin-left: auto; margin-right: auto; padding: 0px;"
+                    >
+                    <h2 class="text-center">Datos de identificación</h2>
+                    <hr>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <label for="names" class="form-label">Nombres</label>
+                      <input type="text" class="form-control" id="names" v-model="user.names">
+                    </div>
+                    <div class="col-4">
+                      <label for="lastnames" class="form-label">Apellidos</label>
+                      <input type="text" class="form-control" id="lastnames" v-model="user.lastnames">
+                    </div>
+                    <div class="col-4">
+                      <label for="idNumber" class="form-label">Número de identificación</label>
+                      <input type="number" class="form-control" id="idNumber" v-model="user.idNumber">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <label for="birhtDate" class="form-label">Fecha de nacimiento</label>
+                      <input type="date" class="form-control" id="birhtDate" v-model="user.birthDate">
+                    </div>
+                    <div class="col-4">
+                      <label for="gender" class="form-label">Genero</label>
+                      <select class="form-select" aria-label="Seleccione su genero" id="gender" v-model="user.gender">
+                        <option value="null" selected>Haga click acá para seleccionar</option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Femenino</option>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                      <label for="profession" class="form-label">Profesion</label>
+                      <input type="text" class="form-control" id="profession" aria-describedby="professionHelp" v-model="user.profession">
+                      <div id="professionHelp" class="form-text">
+                        <small>Para el futuro se podría desplegar o hacer un listado de las enfermedades usuales asociadas a la profesión.</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <label for="civilState" class="form-label">Estado civil</label>
+                      <select class="form-select" aria-label="Seleccione su estado civil" id="civilState" v-model="user.civilState">
+                        <option value="null" selected>Haga click acá para seleccionar</option>
+                        <option value="1">Casado</option>
+                        <option value="2">Soltero</option>
+                        <option value="3">ETC...</option>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                      <label for="schoolarship" class="form-label">Escolaridad</label>
+                      <select class="form-select" aria-label="Seleccione su escolaridad" id="schoolarship" v-model="user.schoolarship">
+                        <option value="null" selected>Haga click acá para seleccionar</option>
+                        <option value="1">Primaria</option>
+                        <option value="2">Bachillerato</option>
+                        <option value="3">Técnico</option>
+                        <option value="4">Profesional universitario</option>
+                        <option value="5">Posgrado</option>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                      <label for="address" class="form-label">Dirección</label>
+                      <input type="text" class="form-control" id="address" v-model="user.address">
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-4">
+                      <label for="ethnicity" class="form-label">Etnia</label>
+                      <select class="form-select" aria-label="Seleccione su etnia" id="ethnicity" v-model="user.ethnicity">
+                        <option value="null" selected>Haga click acá para seleccionar</option>
+                        <option value="1">Raizal</option>
+                        <option value="2">Indigena</option>
+                        <option value="3">Mestizo</option>
+                      </select>
+                    </div>
+                    <div class="col-4">
+                      <label for="bloodType" class="form-label">Grupo sanguineo</label>
+                      <div class="row">
+                        <div class="col-6">
+                          <select class="form-select" aria-label="Seleccione su grupo sanguineo" id="bloodType" v-model="user.bloodType.group">
+                            <option value="null" selected>Haga click acá para seleccionar</option>
+                            <option value="1">A</option>
+                            <option value="2">B</option>
+                            <option value="3">O</option>
+                            <option value="4">AB</option>
+                          </select>
+                        </div>
+                        <div class="col-6">
+                          <select class="form-select" aria-label="Seleccione su factor de RH" id="bloodType" v-model="user.bloodType.rh">
+                            <option value="null" selected>Haga click acá para seleccionar</option>
+                            <option value="1">+</option>
+                            <option value="2">-</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <label for="phone" class="form-label">Teléfono</label>
+                      <input type="number" class="form-control" id="phone" v-model="user.phone">
+                    </div>
+                  </div>
+                  <div class="row mb-3 justify-content-center">
+                    <div class="col-4 form-check" style="display: flex; align-items: center;" >
+                      <input type="checkbox" class="form-check-input" id="attendant" v-model="user.haveAttendant">
+                      <label class="form-check-label ms-2" for="attendant">¿Tiene acompañante/acudiente ?</label>
+                    </div>
+                  </div>
+                  <div class="row border border rounded-1" v-if="user.haveAttendant">
+                    <h3 class="text-center my-2" style="color: gray;">Datos del acompañante</h3>
+                    <hr>
+                    <div class="row mb-3">
+                      <div class="col-4">
+                        <label for="names" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="names" v-model="user.attendant.names">
+                      </div>
+                      <div class="col-4">
+                        <label for="lastnames" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="lastnames" v-model="user.attendant.lastnames">
+                      </div>
+                      <div class="col-4">
+                        <label for="idNumber" class="form-label">Número de identificación</label>
+                        <input type="number" class="form-control" id="idNumber" v-model="user.attendant.idNumber">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-4">
+                        <label for="birhtDate" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="birhtDate" v-model="user.attendant.birthDate">
+                      </div>
+                      <div class="col-4">
+                        <label for="gender" class="form-label">Genero</label>
+                        <select class="form-select" aria-label="Seleccione su genero" id="gender" v-model="user.attendant.gender">
+                          <option value="null" selected>Haga click acá para seleccionar</option>
+                          <option value="1">Masculino</option>
+                          <option value="2">Femenino</option>
+                        </select>
+                      </div>
+                      <div class="col-4">
+                        <label for="profession" class="form-label">Profesion</label>
+                        <input type="text" class="form-control" id="profession" aria-describedby="professionHelp" v-model="user.attendant.profession">
+                        <div id="professionHelp" class="form-text">
+                          <small>Para el futuro se podría desplegar o hacer un listado de las enfermedades usuales asociadas a la profesión.</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-4">
+                        <label for="civilState" class="form-label">Estado civil</label>
+                        <select class="form-select" aria-label="Seleccione su estado civil" id="civilState" v-model="user.attendant.civilState">
+                          <option value="null" selected>Haga click acá para seleccionar</option>
+                          <option value="1">Casado</option>
+                          <option value="2">Soltero</option>
+                          <option value="3">ETC...</option>
+                        </select>
+                      </div>
+                      <div class="col-4">
+                        <label for="schoolarship" class="form-label">Escolaridad</label>
+                        <select class="form-select" aria-label="Seleccione su escolaridad" id="schoolarship" v-model="user.attendant.schoolarship">
+                          <option value="null" selected>Haga click acá para seleccionar</option>
+                          <option value="1">Primaria</option>
+                          <option value="2">Bachillerato</option>
+                          <option value="2">Técnico</option>
+                          <option value="3">Profesional universitario</option>
+                          <option value="4">Posgrado</option>
+                        </select>
+                      </div>
+                      <div class="col-4">
+                        <label for="address" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="address" v-model="user.attendant.address">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-4">
+                        <label for="phone" class="form-label">Teléfono</label>
+                        <input type="number" class="form-control" id="phone" v-model="user.attendant.phone">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Motivo de consulta
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <label for="consultation" class="form-label">Especifique el motivo de la consulta</label>
+                <textarea
+                  v-model="reasonOfConsult"
+                  class="form-control"
+                  name="consultation"
+                  id="consultation"
+                  cols="100"
+                  rows="5"
+                ></textarea>
+                <div class="alert alert-danger my-2" role="alert">
+                  Recuerde que si no se soluciona el motivo de la consulta esta no puede finalizar.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Enfermedad actual
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <div class="row gx-0 mb-2">
+                  <label for="since" class="form-label">¿Desde cuando?</label>
+                  <div class="row gx-2">
+                    <div class="col-6">
+                      <label for="since" class="form-label">Información textual dada por el paciente</label>
+                      <input v-model="actualDisease.since" type="text" name="since" id="since" class="form-control">
+                    </div>
+                    <div class="col-6">
+                      <label for="sinceDate" class="form-label">Estimado en fecha</label>
+                      <input v-model="actualDisease.sinceDate" type="date" name="sinceDate" id="sinceDate" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row gx-0 mb-2">
+                  <label for="disease-cause" class="form-label">Escriba la causa aparente</label>
+                  <textarea v-model="actualDisease.cause" class="form-control" name="disease-cause" id="disease-cause" cols="100" rows="5"></textarea>
+                </div>
+                <div class="row gx-0 mb-2">
+                  <label for="disease-caracteristics" class="form-label">Escriba las caracterísitcas de la enfermedad (¿Cómo es?)</label>
+                  <textarea v-model="actualDisease.caracteristics" class="form-control" name="disease-caracteristics" id="disease-caracteristics" cols="100" rows="5"></textarea>
+                </div>
+                <div class="row gx-0 mb-2">
+                  <label for="disease-adds" class="form-label">Acompañantes</label>
+                  <textarea v-model="actualDisease.adds" class="form-control" name="disease-adds" id="disease-adds" cols="100" rows="5"></textarea>
+                </div>
+                <div class="row gx-0">
+                  <label for="disease-mods" class="form-label">Modificaciones</label>
+                  <textarea v-model="actualDisease.modifiers" class="form-control" name="disease-mods" id="disease-mods" cols="100" rows="5" placeholder="Situaciones que pueden mejorar, empeorar el sisntoma o no cambiarlo"></textarea>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Antecedentes personales
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <!--
+                  Patologicos
+                    Medicos           (Alergias, que enfermedades desde cuando, con que tratamiento)
+                    Quirurgicos       (Cirugias, y si es posible la razón de realizarla)
+                  No patologicos
+                    Perniciosos       (Si fuma, bebe, drogas, etc..) (que tanto que tan frecuente)
+                    No perniciosos    (Actividad física, sueño, alimentación, habitos y si han cambiado)
+                 -->
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <h4>Patológicos</h4>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div>Médicos</div>
+                        <div class="list-group">
+                          <button type="button" class="list-group-item list-group-item-action active" aria-current="true">Alergias</button>
+                          <button type="button" class="list-group-item list-group-item-action">Asma</button>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>Quirúrgicos</div>
+                        <div class="list-group">
+                          <button type="button" class="list-group-item list-group-item-action">Cirugia dental</button>
+                          <button type="button" class="list-group-item list-group-item-action">Cirugia maxofacial</button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <div>
+                      <h4>Alergias</h4>
+                      <div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Alergia</th>
+                              <th scope="col">¿Desde cuando?</th>
+                              <th scope="col">Medicamento prescrito</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="table-danger">
+                              <th scope="row">1</th>
+                              <td>Penicilina</td>
+                              <td>Nacimiento</td>
+                              <td>N/A</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>Maní</td>
+                              <td>Nacimiento</td>
+                              <td>Peanut Allergen Powder-dnfp</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div>
+                      <h4>Tratamientos</h4>
+                      <div class="my-2">
+                        <label for="patologic-medic-disaease-since" class="form-label">Fecha de Diagnóstico</label>
+                        <input type="date" name="patologic-medic-disaease-since" id="patologic-medic-disaease-since" class="form-control">
+                      </div>
+                      <div class="my-2">
+                        <label for="patologic-medic-treatment-since" class="form-label">Fecha de tratamiento</label>
+                        <div class="row">
+                          <div class="col-5">
+                            <input type="date" name="patologic-medic-treatment-since" id="patologic-medic-treatment-since" class="form-control">
+                          </div>
+                          <div class="col-6">
+                            <input type="date" name="patologic-medic-treatment-since" id="patologic-medic-treatment-since" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Medicamento prescrito</th>
+                              <th scope="col">¿Desde cuando?</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>Penicilina</td>
+                              <td>Nacimiento</td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>Nacimiento</td>
+                              <td>Peanut Allergen Powder-dnfp</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <textarea class="form-control" id="" cols="30" rows="10" placeholder="Descripción del tratamiento" disabled readonly></textarea>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                  <div class="col-6">
+                    <h4>No patológicos</h4>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div>Perniciosos</div>
+                        <div class="list-group">
+                          <button type="button" class="list-group-item list-group-item-action active" aria-current="true">Fuma</button>
+                          <button type="button" class="list-group-item list-group-item-action">Bebe</button>
+                          <button type="button" class="list-group-item list-group-item-action">Drogas</button>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div>No perniciosos</div>
+                        <div class="list-group">
+                          <button type="button" class="list-group-item list-group-item-action">Actividad física</button>
+                          <button type="button" class="list-group-item list-group-item-action">Sueño</button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <h4>Descripción</h4>
+                    <span><strong>Ferecuencia :</strong> Dairio </span>
+                    <span><strong>Ferecuencia :</strong> Cuantos </span>
+                    <span><strong>Horas de sueño :</strong> +7h </span>
+                    <textarea class="form-control" id="" cols="30" rows="10" disabled readonly></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Antecedentes familiares
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <!--
+                  Familiares
+                    Los que tienen carga génetica
+                 -->
+                <div class="row">
+                  <div class="col-6">
+                    <h4>Parientes</h4>
+                    <div class="list-group">
+                      <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                        Madre
+                      </button>
+                      <button type="button" class="list-group-item list-group-item-action">Padre</button>
+                      <button type="button" class="list-group-item list-group-item-action">Abuelos</button>
+                      <button type="button" class="list-group-item list-group-item-action" disabled>Otros</button>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <h4>Enfermedades</h4>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Asma</li>
+                      <li class="list-group-item">Cancer</li>
+                      <li class="list-group-item">Diabetes</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" v-if="user.gender === 'f'">
+            <h2 class="accordion-header" id="headingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                Antecedentes ginecológicos
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <!--
+                  Ginecologicos
+                    Características
+                    Historia sexual y anticoncepción
+                    Historia obstetrica (G_P_C_A_) gestación, parto, cesarea, aborto
+                    Detección oportuna de cancer
+                 -->
+                <div class="row gx-0">
+                  <label for="disease-mods" class="form-label">Características</label>
+                  <textarea v-model="ginecologic.caracteristics" class="form-control" name="disease-mods" id="disease-mods" cols="100" rows="5" placeholder="Situaciones que pueden mejorar, empeorar el sisntoma o no cambiarlo"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                Socio-económicos
+              </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <!--
+                  Condición económica
+                    Servicios básicos
+                    Higiene
+                    Comparte apartamento así
+                 -->
+                <div class="row">
+                  <div class="col-6">
+                    <h4>Parientes</h4>
+                    <div class="list-group">
+                      <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                        Madre
+                      </button>
+                      <button type="button" class="list-group-item list-group-item-action">Padre</button>
+                      <button type="button" class="list-group-item list-group-item-action">Abuelos</button>
+                      <button type="button" class="list-group-item list-group-item-action" disabled>Otros</button>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <h4>Enfermedades</h4>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Asma</li>
+                      <li class="list-group-item">Cancer</li>
+                      <li class="list-group-item">Diabetes</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingEight">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                Revisión de sistemas (RAS)
+              </button>
+            </h2>
+            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionSubjectiveInfo">
+              <div class="accordion-body">
+                <!--
+                  ¿Qué otras molestias ha tenido?
+                  Preguntas por sistemas
+                    General
+                    Respiratorio
+                    Circulatorio
+                    Digestivo
+                    Urogenital
+                    Endocrino
+                    Nervioso
+                    Locomotor
+                  [ !!!Recordar que acá se busca sintomas!!! ]
+                 -->
+                <div class="row">
+                  <div class="col-6">
+                    <h4>Parientes</h4>
+                    <div class="list-group">
+                      <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+                        Madre
+                      </button>
+                      <button type="button" class="list-group-item list-group-item-action">Padre</button>
+                      <button type="button" class="list-group-item list-group-item-action">Abuelos</button>
+                      <button type="button" class="list-group-item list-group-item-action" disabled>Otros</button>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <h4>Enfermedades</h4>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Asma</li>
+                      <li class="list-group-item">Cancer</li>
+                      <li class="list-group-item">Diabetes</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Fin    : Información subjetiva -->
+      </div>
+      <div class="tab-pane fade" id="pills-obj-info" role="tabpanel" aria-labelledby="pills-obj-info-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="pills-diagnostic" role="tabpanel" aria-labelledby="pills-diagnostic-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="pills-pronostic" role="tabpanel" aria-labelledby="pills-pronostic-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="pills-treatment" role="tabpanel" aria-labelledby="pills-treatment-tab" tabindex="0">...</div>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-5">
+      <button class="btn btn-primary" type="button" v-if="false">Anterior</button>
+      <button class="btn btn-primary me-md-2" type="button">Guardar Información</button>
+      <button class="btn btn-primary" type="button" disabled>Siguiente</button>
+    </div>
+  </div>
